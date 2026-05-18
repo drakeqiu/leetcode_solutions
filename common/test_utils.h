@@ -1,13 +1,14 @@
 #ifndef LEETCODE_TEST_UTILS_H
 #define LEETCODE_TEST_UTILS_H
 
-#include "data_structures.h"
 #include <algorithm>
-#include <vector>
-#include <queue>
-#include <string>
-#include <sstream>
 #include <optional>
+#include <queue>
+#include <sstream>
+#include <string>
+#include <vector>
+
+#include "data_structures.h"
 
 namespace leetcode {
 
@@ -15,16 +16,17 @@ namespace leetcode {
 
 // 从 vector 创建链表
 inline ListNode* createList(const std::vector<int>& values) {
-    if (values.empty()) return nullptr;
-    
+    if (values.empty())
+        return nullptr;
+
     ListNode* dummy = new ListNode(0);
     ListNode* current = dummy;
-    
+
     for (int val : values) {
         current->next = new ListNode(val);
         current = current->next;
     }
-    
+
     ListNode* head = dummy->next;
     delete dummy;
     return head;
@@ -52,7 +54,8 @@ inline void deleteList(ListNode* head) {
 // 比较两个链表是否相等
 inline bool areListsEqual(ListNode* l1, ListNode* l2) {
     while (l1 && l2) {
-        if (l1->val != l2->val) return false;
+        if (l1->val != l2->val)
+            return false;
         l1 = l1->next;
         l2 = l2->next;
     }
@@ -65,7 +68,8 @@ inline std::string listToString(ListNode* head) {
     oss << "[";
     bool first = true;
     while (head) {
-        if (!first) oss << ", ";
+        if (!first)
+            oss << ", ";
         oss << head->val;
         first = false;
         head = head->next;
@@ -78,24 +82,25 @@ inline std::string listToString(ListNode* head) {
 
 // 从 vector 创建二叉树（层序遍历，-1 或 std::nullopt 表示空节点）
 inline TreeNode* createTree(const std::vector<std::optional<int>>& values) {
-    if (values.empty() || !values[0].has_value()) return nullptr;
-    
+    if (values.empty() || !values[0].has_value())
+        return nullptr;
+
     TreeNode* root = new TreeNode(values[0].value());
     std::queue<TreeNode*> q;
     q.push(root);
-    
+
     size_t i = 1;
     while (!q.empty() && i < values.size()) {
         TreeNode* node = q.front();
         q.pop();
-        
+
         // 左子节点
         if (i < values.size() && values[i].has_value()) {
             node->left = new TreeNode(values[i].value());
             q.push(node->left);
         }
         i++;
-        
+
         // 右子节点
         if (i < values.size() && values[i].has_value()) {
             node->right = new TreeNode(values[i].value());
@@ -103,7 +108,7 @@ inline TreeNode* createTree(const std::vector<std::optional<int>>& values) {
         }
         i++;
     }
-    
+
     return root;
 }
 
@@ -123,15 +128,16 @@ inline TreeNode* createTree(const std::vector<int>& values, int null_value = -1)
 // 二叉树转 vector（层序遍历）
 inline std::vector<std::optional<int>> treeToVector(TreeNode* root) {
     std::vector<std::optional<int>> result;
-    if (!root) return result;
-    
+    if (!root)
+        return result;
+
     std::queue<TreeNode*> q;
     q.push(root);
-    
+
     while (!q.empty()) {
         TreeNode* node = q.front();
         q.pop();
-        
+
         if (node) {
             result.push_back(node->val);
             q.push(node->left);
@@ -140,18 +146,19 @@ inline std::vector<std::optional<int>> treeToVector(TreeNode* root) {
             result.push_back(std::nullopt);
         }
     }
-    
+
     // 移除末尾的空节点
     while (!result.empty() && !result.back().has_value()) {
         result.pop_back();
     }
-    
+
     return result;
 }
 
 // 释放二叉树内存
 inline void deleteTree(TreeNode* root) {
-    if (!root) return;
+    if (!root)
+        return;
     deleteTree(root->left);
     deleteTree(root->right);
     delete root;
@@ -159,9 +166,12 @@ inline void deleteTree(TreeNode* root) {
 
 // 比较两棵树是否相等
 inline bool areTreesEqual(TreeNode* t1, TreeNode* t2) {
-    if (!t1 && !t2) return true;
-    if (!t1 || !t2) return false;
-    if (t1->val != t2->val) return false;
+    if (!t1 && !t2)
+        return true;
+    if (!t1 || !t2)
+        return false;
+    if (t1->val != t2->val)
+        return false;
     return areTreesEqual(t1->left, t2->left) && areTreesEqual(t1->right, t2->right);
 }
 
@@ -171,7 +181,8 @@ inline std::string treeToString(TreeNode* root) {
     std::ostringstream oss;
     oss << "[";
     for (size_t i = 0; i < vec.size(); ++i) {
-        if (i > 0) oss << ", ";
+        if (i > 0)
+            oss << ", ";
         if (vec[i].has_value()) {
             oss << vec[i].value();
         } else {
@@ -185,21 +196,23 @@ inline std::string treeToString(TreeNode* root) {
 // ==================== 通用工具函数 ====================
 
 // 比较两个 vector 是否相等（忽略顺序）
-template<typename T>
+template <typename T>
 inline bool areVectorsEqualUnordered(std::vector<T> v1, std::vector<T> v2) {
-    if (v1.size() != v2.size()) return false;
+    if (v1.size() != v2.size())
+        return false;
     std::sort(v1.begin(), v1.end());
     std::sort(v2.begin(), v2.end());
     return v1 == v2;
 }
 
 // 打印 vector（用于调试）
-template<typename T>
+template <typename T>
 inline std::string vectorToString(const std::vector<T>& vec) {
     std::ostringstream oss;
     oss << "[";
     for (size_t i = 0; i < vec.size(); ++i) {
-        if (i > 0) oss << ", ";
+        if (i > 0)
+            oss << ", ";
         oss << vec[i];
     }
     oss << "]";
@@ -207,12 +220,13 @@ inline std::string vectorToString(const std::vector<T>& vec) {
 }
 
 // 打印二维 vector（用于调试）
-template<typename T>
+template <typename T>
 inline std::string vector2DToString(const std::vector<std::vector<T>>& vec) {
     std::ostringstream oss;
     oss << "[";
     for (size_t i = 0; i < vec.size(); ++i) {
-        if (i > 0) oss << ", ";
+        if (i > 0)
+            oss << ", ";
         oss << vectorToString(vec[i]);
     }
     oss << "]";

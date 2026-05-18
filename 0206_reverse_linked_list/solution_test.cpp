@@ -1,5 +1,7 @@
-#include <gtest/gtest.h>
 #include "solution.cpp"
+
+#include <gtest/gtest.h>
+
 #include "test_utils.h"
 
 using namespace leetcode;

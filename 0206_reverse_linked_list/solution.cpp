@@ -1,5 +1,6 @@
-#include <vector>
 #include <unordered_map>
+#include <vector>
+
 #include "data_structures.h"
 
 /**
@@ -24,7 +25,7 @@ public:
             prev = cur;
             cur = next;
         }
-        
+
         return prev;
     }
 

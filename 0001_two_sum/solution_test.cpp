@@ -1,5 +1,6 @@
-#include <gtest/gtest.h>
 #include "solution.cpp"
+
+#include <gtest/gtest.h>
 
 TEST(TwoSum, Example1) {
     Solution solution;

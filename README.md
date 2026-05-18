@@ -27,8 +27,27 @@ leetcode_solutions/
 - CMake 3.14 或更高版本
 - C++17 或更高版本的编译器（GCC 7+, Clang 5+, MSVC 2017+）
 - Git（用于下载 Google Test）
+- clang-format（可选，用于代码格式化）
+- clang-tidy（可选，用于静态分析）
 
-### 编译项目
+### 使用 Makefile（推荐）
+
+项目提供了 Makefile 简化常用操作：
+
+```bash
+make build        # 编译项目
+make test         # 运行所有测试
+make test-0206    # 运行特定题目测试（如 0206）
+make clean        # 清理构建目录
+make format       # 格式化所有代码
+make format-check # 检查代码格式
+make tidy         # 运行 clang-tidy 静态分析
+make asan         # 使用 AddressSanitizer 构建和测试
+make ci           # 完整 CI 检查（格式 + 编译 + 测试）
+make help         # 显示帮助信息
+```
+
+### 手动编译
 
 ```bash
 # 创建构建目录

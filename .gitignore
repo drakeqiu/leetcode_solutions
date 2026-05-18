@@ -22,8 +22,11 @@ cmake-build-*/
 CMakeCache.txt
 CMakeFiles/
 cmake_install.cmake
-Makefile
 *.cmake
+
+# CMake generated Makefiles (but not root Makefile)
+**/Makefile
+!/Makefile
 
 # Testing
 Testing/

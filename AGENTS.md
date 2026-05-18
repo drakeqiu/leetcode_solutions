@@ -130,9 +130,26 @@ ctest --verbose
 
 ### 代码风格
 - 使用 C++17 标准特性
-- 遵循 Google C++ Style Guide
+- 遵循 Google C++ Style Guide（配合 Facebook 风格调整）
 - 添加适当的注释
 - 保持代码简洁清晰
+
+### 代码格式化
+项目使用 clang-format 进行代码格式化，配置文件为 `.clang-format`。
+
+```bash
+# 格式化单个文件
+clang-format -i path/to/file.cpp
+
+# 格式化所有源文件
+find . -path ./build -prune -o \( -name '*.cpp' -o -name '*.h' \) -print | xargs clang-format -i
+
+# 只检查格式（不修改）
+clang-format --dry-run --Werror path/to/file.cpp
+
+# 检查所有文件格式
+find . -path ./build -prune -o \( -name '*.cpp' -o -name '*.h' \) -print | xargs clang-format --dry-run --Werror
+```
 
 ### 测试原则
 - 每个解法至少包含 3-5 个测试用例

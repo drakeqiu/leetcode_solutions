@@ -2,6 +2,7 @@
 #define LEETCODE_TEST_UTILS_H
 
 #include "data_structures.h"
+#include <algorithm>
 #include <vector>
 #include <queue>
 #include <string>

@@ -5,7 +5,15 @@ using namespace std;
 class Solution {
 public:
     int climbStairs(int n) {
-        // TODO: 实现代码
-        return 0;
+        if (n <= 2) {
+            return n;
+        }
+        int p = 1, q = 2;
+        for (int i = 3; i <= n; ++i) {
+            int r = p + q;
+            p = q;
+            q = r;
+        }
+        return q;
     }
 };

@@ -38,11 +38,25 @@ Explanation: There is no cycle in the linked list.
 
 ## 解题思路
 
-> TODO: 实现后补充
+使用快慢指针（Floyd's Cycle Detection Algorithm）检测链表是否有环。
+
+**算法步骤：**
+1. 初始化两个指针：slow 和 fast，都从 head 开始
+2. slow 每次走一步，fast 每次走两步
+3. 如果链表有环，fast 最终会追上 slow（slow == fast）
+4. 如果链表无环，fast 会到达链表末尾（fast == nullptr 或 fast->next == nullptr）
+
+**关键点：**
+- 快慢指针的速度差确保了如果有环，fast 会在有限时间内追上 slow
+- 边界条件：需要检查 fast 和 fast->next 是否存在，才能让 fast 走两步
+- 满足 O(1) 空间复杂度要求（Follow-up）
 
 ## 复杂度分析
 
-> TODO: 实现后补充
+- **时间复杂度**：O(n)，其中 n 是链表长度
+  - 如果有环，fast 会在 O(n) 时间内追上 slow
+  - 如果无环，fast 会在 O(n/2) 时间内到达末尾
+- **空间复杂度**：O(1)，只使用两个指针，满足 Follow-up 要求
 
 ## 相关标签
 

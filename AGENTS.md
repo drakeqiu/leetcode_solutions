@@ -128,6 +128,121 @@ ctest --verbose
 5. 运行测试验证正确性
 6. 在 README.md 中补充思路和复杂度分析
 
+### 添加新题目的 Git 工作流
+
+添加新题目时，遵循以下标准工作流：
+
+#### 1. 创建 Issue
+
+为新题目创建一个 issue，标题格式：`feat: add [题号] [题目名称]`
+
+示例：`feat: add 14 longest common prefix`
+
+#### 2. 创建分支
+
+从 main 分支创建新分支，命名格式：`feat/[题号]-[题目名称]`
+
+```bash
+git checkout main
+git pull
+git checkout -b feat/0014-longest-common-prefix
+```
+
+#### 3. 创建题目框架代码
+
+创建题目目录和三个文件，**只提供框架，不实现具体逻辑**：
+
+**目录结构：**
+```
+0014_longest_common_prefix/
+├── solution.cpp
+├── solution_test.cpp
+└── README.md
+```
+
+**solution.cpp（框架）：**
+```cpp
+#include <string>
+#include <vector>
+
+using namespace std;
+
+class Solution {
+public:
+    string longestCommonPrefix(vector<string>& strs) {
+        // TODO: 实现代码
+        return "";
+    }
+};
+```
+
+- 包含必要的头文件
+- Solution 类和方法签名完整
+- 方法体只有 `// TODO: 实现代码` 注释和默认返回值
+
+**solution_test.cpp（包含测试用例）：**
+```cpp
+#include "solution.cpp"
+
+#include <gtest/gtest.h>
+
+TEST(LongestCommonPrefix, Example1) {
+    Solution solution;
+    vector<string> strs = {"flower", "flow", "flight"};
+    EXPECT_EQ(solution.longestCommonPrefix(strs), "fl");
+}
+
+TEST(LongestCommonPrefix, Example2) {
+    Solution solution;
+    vector<string> strs = {"dog", "racecar", "car"};
+    EXPECT_EQ(solution.longestCommonPrefix(strs), "");
+}
+```
+
+- 包含 LeetCode 题目中的示例测试用例
+- 可以包含边界条件测试用例
+
+**README.md（题目描述，思路待填写）：**
+```markdown
+# [题号]. 题目名称
+
+## 题目描述
+
+[从 LeetCode 复制题目描述、示例和约束条件]
+
+## 解题思路
+
+> TODO: 实现后补充
+
+## 复杂度分析
+
+> TODO: 实现后补充
+
+## 相关标签
+
+[标签1] [标签2] ...
+
+## 参考链接
+
+https://leetcode.com/problems/problem-name/
+```
+
+#### 4. 提交框架代码并创建 PR
+
+```bash
+git add .
+git commit -m "feat: add [题号] [题目名称] framework"
+git push origin feat/[题号]-[题目名称]
+gh pr create --title "feat: add [题号] [题目名称] framework" --body "Closes #[issue号]"
+```
+
+#### 注意事项
+
+- 框架代码应该能够**编译通过**（测试会失败，这是预期的）
+- README.md 中的解题思路和复杂度分析在实现完成后再补充
+- PR 标题使用 `feat: add [题号] [题目名称] framework` 格式
+- 实现代码后，再提交一个 PR 来完成实现（或在同一个 PR 中继续开发）
+
 ### 代码风格
 - 使用 C++17 标准特性
 - 遵循 Google C++ Style Guide（配合 Facebook 风格调整）

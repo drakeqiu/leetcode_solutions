@@ -252,6 +252,13 @@ gh pr create --title "feat: add [题号] [题目名称] framework" --body "Close
 ### 代码格式化
 项目使用 clang-format 进行代码格式化，配置文件为 `.clang-format`。
 
+**推荐方式：使用 make format**
+```bash
+# 格式化所有源文件（推荐）
+make format
+```
+
+**手动方式：**
 ```bash
 # 格式化单个文件
 clang-format -i path/to/file.cpp

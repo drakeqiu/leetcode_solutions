@@ -7,10 +7,10 @@ TEST(DesignAddAndSearchWords, Example1) {
     wordDictionary->addWord("bad");
     wordDictionary->addWord("dad");
     wordDictionary->addWord("mad");
-    EXPECT_FALSE(wordDictionary->search("pad")); // return False
-    EXPECT_TRUE(wordDictionary->search("bad"));  // return True
-    EXPECT_TRUE(wordDictionary->search(".ad"));  // return True
-    EXPECT_TRUE(wordDictionary->search("b.."));  // return True
+    EXPECT_FALSE(wordDictionary->search("pad"));  // return False
+    EXPECT_TRUE(wordDictionary->search("bad"));   // return True
+    EXPECT_TRUE(wordDictionary->search(".ad"));   // return True
+    EXPECT_TRUE(wordDictionary->search("b.."));   // return True
     delete wordDictionary;
 }
 

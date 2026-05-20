@@ -9,13 +9,19 @@ using namespace std;
 class Solution {
 public:
     // 递归版本
-    void preorder(TreeNode* node, vector<int>& result) {
+    void preorderRecursive(TreeNode* node, vector<int>& result) {
         if (!node) {
             return;
         }
         result.push_back(node->val);
-        preorder(node->left, result);
-        preorder(node->right, result);
+        preorderRecursive(node->left, result);
+        preorderRecursive(node->right, result);
+    }
+
+    vector<int> preorderTraversalRecursive(TreeNode* root) {
+        vector<int> result;
+        preorderRecursive(root, result);
+        return result;
     }
 
     // 迭代版本（使用栈）

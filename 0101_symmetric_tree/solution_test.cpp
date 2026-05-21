@@ -6,21 +6,15 @@ using namespace leetcode;
 
 TEST(SymmetricTree, Example1) {
     Solution solution;
-    TreeNode* root = new TreeNode(1,
-        new TreeNode(2,
-            new TreeNode(3),
-            new TreeNode(4)),
-        new TreeNode(2,
-            new TreeNode(4),
-            new TreeNode(3)));
+    TreeNode* root = new TreeNode(1, new TreeNode(2, new TreeNode(3), new TreeNode(4)),
+                                  new TreeNode(2, new TreeNode(4), new TreeNode(3)));
     EXPECT_TRUE(solution.isSymmetric(root));
 }
 
 TEST(SymmetricTree, Example2) {
     Solution solution;
-    TreeNode* root = new TreeNode(1,
-        new TreeNode(2, nullptr, new TreeNode(3)),
-        new TreeNode(2, nullptr, new TreeNode(3)));
+    TreeNode* root = new TreeNode(1, new TreeNode(2, nullptr, new TreeNode(3)),
+                                  new TreeNode(2, nullptr, new TreeNode(3)));
     EXPECT_FALSE(solution.isSymmetric(root));
 }
 

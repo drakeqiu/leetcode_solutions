@@ -17,7 +17,8 @@ TEST(RemoveDuplicatesFromSortedList, Example1) {
 
 TEST(RemoveDuplicatesFromSortedList, Example2) {
     Solution solution;
-    ListNode* head = new ListNode(1, new ListNode(1, new ListNode(2, new ListNode(3, new ListNode(3)))));
+    ListNode* head =
+        new ListNode(1, new ListNode(1, new ListNode(2, new ListNode(3, new ListNode(3)))));
     ListNode* result = solution.deleteDuplicates(head);
 
     // Expected: 1 -> 2 -> 3

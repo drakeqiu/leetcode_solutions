@@ -6,7 +6,8 @@ using namespace leetcode;
 
 TEST(MaximumDepthOfBinaryTree, Example1) {
     Solution solution;
-    TreeNode* root = new TreeNode(3, new TreeNode(9), new TreeNode(20, new TreeNode(15), new TreeNode(7)));
+    TreeNode* root =
+        new TreeNode(3, new TreeNode(9), new TreeNode(20, new TreeNode(15), new TreeNode(7)));
     EXPECT_EQ(solution.maxDepth(root), 3);
 }
 

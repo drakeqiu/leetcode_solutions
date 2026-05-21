@@ -13,7 +13,7 @@ TEST(SameTree, Example1) {
 
 TEST(SameTree, Example2) {
     Solution solution;
-    TreeNode* p = new TreeNode(1, new TreeNode(2));
+    TreeNode* p = new TreeNode(1, new TreeNode(2), nullptr);
     TreeNode* q = new TreeNode(1, nullptr, new TreeNode(2));
     EXPECT_FALSE(solution.isSameTree(p, q));
 }

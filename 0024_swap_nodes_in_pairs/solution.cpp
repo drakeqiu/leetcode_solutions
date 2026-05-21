@@ -5,7 +5,12 @@ using namespace leetcode;
 class Solution {
 public:
     ListNode* swapPairs(ListNode* head) {
-        // TODO: 实现代码
-        return nullptr;
+        if (head == nullptr || head->next == nullptr) {
+            return head;
+        }
+        ListNode* newHead = head->next;
+        head->next = swapPairs(newHead->next);
+        newHead->next = head;
+        return newHead;
     }
 };

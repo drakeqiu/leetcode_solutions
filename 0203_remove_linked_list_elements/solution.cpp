@@ -1,4 +1,4 @@
-#include "common/data_structures.h"
+#include "data_structures.h"
 
 using namespace leetcode;
 

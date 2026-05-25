@@ -2,7 +2,10 @@
 
 #include <gtest/gtest.h>
 
-#include "common/test_utils.h"
+#include "test_utils.h"
+
+using namespace std;
+using namespace leetcode;
 
 TEST(RemoveLinkedListElements, Example1) {
     Solution solution;
@@ -12,7 +15,7 @@ TEST(RemoveLinkedListElements, Example1) {
     ListNode* result = solution.removeElements(head, val);
     vector<int> expected = {1, 2, 3, 4, 5};
     EXPECT_EQ(listToVector(result), expected);
-    freeList(result);
+    deleteList(result);
 }
 
 TEST(RemoveLinkedListElements, Example2) {
@@ -23,7 +26,7 @@ TEST(RemoveLinkedListElements, Example2) {
     ListNode* result = solution.removeElements(head, val);
     vector<int> expected = {};
     EXPECT_EQ(listToVector(result), expected);
-    freeList(result);
+    deleteList(result);
 }
 
 TEST(RemoveLinkedListElements, Example3) {
@@ -34,7 +37,7 @@ TEST(RemoveLinkedListElements, Example3) {
     ListNode* result = solution.removeElements(head, val);
     vector<int> expected = {};
     EXPECT_EQ(listToVector(result), expected);
-    freeList(result);
+    deleteList(result);
 }
 
 TEST(RemoveLinkedListElements, EdgeCaseHeadOnly) {
@@ -45,5 +48,5 @@ TEST(RemoveLinkedListElements, EdgeCaseHeadOnly) {
     ListNode* result = solution.removeElements(head, val);
     vector<int> expected = {};
     EXPECT_EQ(listToVector(result), expected);
-    freeList(result);
+    deleteList(result);
 }

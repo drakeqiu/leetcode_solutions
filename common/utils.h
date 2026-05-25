@@ -158,7 +158,8 @@ private:
 
 public:
     explicit Timer(const std::string& timer_name = "Timer")
-        : name(timer_name), start_time(std::chrono::high_resolution_clock::now()) {}
+        : name(timer_name), start_time(std::chrono::high_resolution_clock::now()) {
+    }
 
     ~Timer() {
         auto end_time = std::chrono::high_resolution_clock::now();
@@ -167,7 +168,9 @@ public:
         std::cout << name << " took " << duration << " microseconds" << std::endl;
     }
 
-    void reset() { start_time = std::chrono::high_resolution_clock::now(); }
+    void reset() {
+        start_time = std::chrono::high_resolution_clock::now();
+    }
 
     long long elapsed_microseconds() const {
         auto end_time = std::chrono::high_resolution_clock::now();

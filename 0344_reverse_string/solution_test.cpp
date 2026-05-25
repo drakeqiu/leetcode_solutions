@@ -21,3 +21,27 @@ TEST(ReverseString, Example2) {
     solution.reverseString(s);
     EXPECT_EQ(s, expected);
 }
+
+TEST(ReverseString, EdgeCaseSingleChar) {
+    Solution solution;
+    vector<char> s = {'a'};
+    vector<char> expected = {'a'};
+    solution.reverseString(s);
+    EXPECT_EQ(s, expected);
+}
+
+TEST(ReverseString, EdgeCaseEmpty) {
+    Solution solution;
+    vector<char> s = {};
+    vector<char> expected = {};
+    solution.reverseString(s);
+    EXPECT_EQ(s, expected);
+}
+
+TEST(ReverseString, EdgeCaseTwoChars) {
+    Solution solution;
+    vector<char> s = {'a', 'b'};
+    vector<char> expected = {'b', 'a'};
+    solution.reverseString(s);
+    EXPECT_EQ(s, expected);
+}

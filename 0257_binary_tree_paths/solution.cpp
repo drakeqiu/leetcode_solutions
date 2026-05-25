@@ -1,6 +1,7 @@
-#include "data_structures.h"
 #include <string>
 #include <vector>
+
+#include "data_structures.h"
 
 using namespace std;
 using namespace leetcode;

@@ -1,9 +1,11 @@
 #include "solution.cpp"
-#include "test_utils.h"
 
 #include <gtest/gtest.h>
+
 #include <optional>
 #include <vector>
+
+#include "test_utils.h"
 
 using namespace leetcode;
 

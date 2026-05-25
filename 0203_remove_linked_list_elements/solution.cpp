@@ -1,6 +1,6 @@
 #include "common/data_structures.h"
 
-using namespace std;
+using namespace leetcode;
 
 class Solution {
 public:

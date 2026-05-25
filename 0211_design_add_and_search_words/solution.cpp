@@ -6,16 +6,22 @@ using namespace std;
 struct TrieNode {
     vector<TrieNode*> children;
     bool isEnd;
-    TrieNode() : children(26, nullptr), isEnd(false) {}
+    TrieNode() : children(26, nullptr), isEnd(false) {
+    }
 };
 
 class WordDictionary {
 public:
-    WordDictionary() : trie(new TrieNode()) {}
+    WordDictionary() : trie(new TrieNode()) {
+    }
 
-    void addWord(string word) { insert(trie, word); }
+    void addWord(string word) {
+        insert(trie, word);
+    }
 
-    bool search(string word) { return dfs(word, 0, trie); }
+    bool search(string word) {
+        return dfs(word, 0, trie);
+    }
 
 private:
     void insert(TrieNode* root, const string& word) {

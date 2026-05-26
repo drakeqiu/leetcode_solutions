@@ -1,4 +1,5 @@
 #include "solution.cpp"
+#include "../common/test_utils.h"
 
 #include <gtest/gtest.h>
 

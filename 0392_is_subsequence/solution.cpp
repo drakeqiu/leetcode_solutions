@@ -6,18 +6,6 @@ using namespace std;
 class Solution {
 public:
     /**
-     * 判断s是否是t的子序列（默认使用双指针法）
-     *
-     * @param s 子序列字符串
-     * @param t 主字符串
-     * @return 如果s是t的子序列返回true，否则返回false
-     */
-    bool isSubsequence(string s, string t) {
-        // TODO: 实现代码（默认调用双指针法）
-        return isSubsequenceTwoPointers(s, t);
-    }
-
-    /**
      * 双指针法判断子序列
      *
      * @param s 子序列字符串

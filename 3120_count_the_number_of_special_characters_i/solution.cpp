@@ -1,5 +1,5 @@
+#include <bitset>
 #include <string>
-#include <vector>
 
 using namespace std;
 
@@ -14,30 +14,25 @@ public:
      * @return 特殊字母的数量
      *
      * 算法思路：
-     * - 使用两个布尔数组分别记录小写和大写字母是否出现
-     * - 遍历字符串，标记出现的字母
-     * - 遍历26个字母，检查是否同时有小写和大写
+     * - 使用 bitset<128> 记录所有出现的字符
+     * - 遍历字符串，标记出现的字符
+     * - 遍历26个字母，检查小写和大写是否都出现过
      *
      * 时间复杂度：O(n)，n 是单词长度
-     * 空间复杂度：O(1)，固定大小的数组
+     * 空间复杂度：O(1)，固定大小的 bitset
      */
     int numberOfSpecialChars(string word) {
         int cnt = 0;
-        vector<bool> lowerCnt(26, false);
-        vector<bool> upperCnt(26, false);
+        bitset<128> seen;
 
-        // 标记出现的字母
+        // 标记所有出现的字符
         for (const char ch : word) {
-            if (islower(ch)) {
-                lowerCnt[ch - 'a'] = true;
-            } else if (isupper(ch)) {
-                upperCnt[ch - 'A'] = true;
-            }
+            seen[ch] = 1;
         }
 
-        // 统计同时有小写和大写的字母
-        for (size_t i = 0; i < 26; i++) {
-            if (lowerCnt[i] && upperCnt[i]) {
+        // 检查26个字母是否同时有小写和大写
+        for (int i = 0; i < 26; i++) {
+            if (seen['a' + i] && seen['A' + i]) {
                 cnt++;
             }
         }

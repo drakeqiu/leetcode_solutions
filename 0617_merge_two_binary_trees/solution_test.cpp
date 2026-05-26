@@ -1,7 +1,8 @@
 #include "solution.cpp"
-#include "../common/test_utils.h"
 
 #include <gtest/gtest.h>
+
+#include "../common/test_utils.h"
 
 using namespace leetcode;
 
@@ -51,6 +52,25 @@ TEST(MergeTwoBinaryTrees, OneEmpty) {
     EXPECT_TRUE(areTreesEqual(merged, expected));
 
     deleteTree(root1);
+    deleteTree(merged);
+    deleteTree(expected);
+}
+
+TEST(MergeTwoBinaryTrees, Example2) {
+    Solution solution;
+    std::vector<int> tree1_values = {1};
+    std::vector<int> tree2_values = {1, 2};
+    TreeNode* root1 = createTree(tree1_values);
+    TreeNode* root2 = createTree(tree2_values);
+
+    TreeNode* merged = solution.mergeTrees(root1, root2);
+
+    std::vector<int> expected_values = {2, 2};
+    TreeNode* expected = createTree(expected_values);
+    EXPECT_TRUE(areTreesEqual(merged, expected));
+
+    deleteTree(root1);
+    deleteTree(root2);
     deleteTree(merged);
     deleteTree(expected);
 }
